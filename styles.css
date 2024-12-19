@@ -1,0 +1,269 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f4f6f7;
+  --card-background: #ffffff;
+  --text-color: #2c3e50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--card-background);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.numeros-sorteados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  max-width: 100%;
+  padding: 10px;
+}
+
+.numero-sorteado-lista {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  font-size: 14px;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+#quantidade-cartelas {
+  padding: 8px;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  width: 80px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+#iniciar {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+#sortear {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+#numero-sorteado {
+  text-align: center;
+  font-size: 20px;
+  color: var(--primary-color);
+  margin: 15px 0;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.cartelas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  padding: 10px;
+  justify-items: center;
+}
+
+.cartela {
+  background-color: var(--card-background);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 12px;
+  width: 100%;
+  max-width: 180px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cartela:hover {
+  transform: scale(1.02);
+}
+
+.numero-cartela {
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 5px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.numero {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  margin: 3px;
+  border-radius: 50%;
+  background-color: #ecf0f1;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.numero.sorteado {
+  background-color: var(--secondary-color);
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Media Queries */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+
+  .container {
+    padding: 15px 10px;
+    margin-top: 5px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+  }
+
+  #quantidade-cartelas {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .numero {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    margin: 2px;
+  }
+
+  .numero-sorteado-lista {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  #numero-sorteado {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .cartelas {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .numero {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+/* Para garantir boa visualização em telas muito pequenas */
+@media screen and (max-width: 320px) {
+  .cartela {
+    padding: 8px;
+  }
+
+  .numero {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+    margin: 2px;
+  }
+
+  .controls {
+    padding: 0 5px;
+  }
+}
