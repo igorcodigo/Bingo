@@ -178,6 +178,26 @@ h1 {
   font-size: 13px;
 }
 
+/* Adicionando estilos específicos para cartelas menores */
+.cartela-pequena {
+  max-width: 150px !important;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding: 5px;
+}
+
+/* Ajustando o tamanho dos números para o novo layout */
+.cartela-pequena .numero {
+  width: 35px;
+  height: 35px;
+  margin: 2px;
+  font-size: 14px;
+}
+
 .numero.sorteado {
   background-color: var(--secondary-color);
   color: white;
@@ -265,5 +285,67 @@ h1 {
 
   .controls {
     padding: 0 5px;
+  }
+}
+
+/* Adicionando estilo para cartelas vencedoras */
+.cartela-vencedora {
+  position: relative;
+  animation: winPulse 2s infinite;
+  border: 2px solid var(--secondary-color);
+}
+
+.cartela-vencedora::after {
+  content: '🏆';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 20px;
+  animation: trophyBounce 1s infinite;
+}
+
+@keyframes winPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+  }
+}
+
+@keyframes trophyBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Media queries para responsividade */
+@media screen and (max-width: 480px) {
+  .cartela-pequena {
+    max-width: 130px !important;
+  }
+
+  .cartela-pequena .numero {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .cartela-pequena {
+    max-width: 120px !important;
+  }
+
+  .cartela-pequena .numero {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
   }
 }
